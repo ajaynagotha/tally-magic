@@ -1,21 +1,36 @@
 // @flow
-import { AccountBalance, Business, Payments } from "@mui/icons-material";
+import {
+  AccountBalance,
+  Business,
+  DesktopMac,
+  Payments,
+} from "@mui/icons-material";
 import * as React from "react";
+import { colors } from "../theme/colors";
+import { Link } from "react-router-dom";
 
 export const MainSideBar = (props) => {
   return (
-    <div className="w-full h-screen bg-[#1C2536]">
+    <div className={`w-full h-screen ${colors.bgPrimary}`}>
+      <Link to="/">
+        <div className="flex flex-col items-center p-2">
+          <DesktopMac fontSize="large" className={colors.txtPrimary} />
+          <div className={colors.txtPrimary}>Dashboard</div>
+        </div>
+      </Link>
+      <Link to="/companies">
+        <div className="flex flex-col items-center p-2">
+          <Business fontSize="large" className={colors.txtPrimary} />
+          <div className={colors.txtPrimary}>Company</div>
+        </div>
+      </Link>
       <div className="flex flex-col items-center p-2">
-        <Business fontSize="large" className="text-[#9DA4AE]"/>
-        <div className="text-[#9DA4AE]">Company</div>
+        <AccountBalance fontSize="large" className={colors.txtPrimary} />
+        <div className={colors.txtPrimary}>Banking</div>
       </div>
       <div className="flex flex-col items-center p-2">
-        <AccountBalance fontSize="large" className="text-[#9DA4AE]"/>
-        <div className="text-[#9DA4AE]">Bank</div>
-      </div>
-      <div className="flex flex-col items-center p-2">
-        <Payments fontSize="large" className="text-[#9DA4AE]"/>
-        <div className="text-[#9DA4AE]">Transactions</div>
+        <Payments fontSize="large" className={colors.txtPrimary} />
+        <div className={colors.txtPrimary}>Transactions</div>
       </div>
     </div>
   );
